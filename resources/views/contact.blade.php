@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Tuner - Contact')
+@section('title', 'Tuna - Contact')
 
 @section('content')
 

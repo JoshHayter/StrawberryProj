@@ -11,20 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', 'PagesController@home');
 
-  $tunes = [
-    'tune1'
-  ];
-    return view('welcome', [
-      'tunes' => $tunes
-    ]);
-});
+Route::get('/about', 'PagesController@about');
 
-Route::get('/about', function(){
-  return view('about');
-});
-
-Route::get('/contact', function(){
-  return view('contact');
-});
+Route::get('/contact', 'PagesController@contact');

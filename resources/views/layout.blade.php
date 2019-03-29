@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'Tuner')</title>
+    <title>@yield('title', 'Tuna')</title>
   </head>
   <body>
     <p>

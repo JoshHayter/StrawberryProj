@@ -1,9 +1,9 @@
 @extends('layout')
 
-@section('title', 'Tuner - About')
+@section('title', 'Tuna - About')
 
 @section('content')
 
-  <h1>About Tuner</h1>
+  <h1>About Tuna</h1>
 
 @endsection

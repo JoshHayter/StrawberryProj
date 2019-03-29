@@ -3,7 +3,7 @@
 
 @section('content')
 
-  <h1>Tuner</h1>
+  <h1>Tuna</h1>
 
   <ul>
     @foreach($tunes as $tune)
