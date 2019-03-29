@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+  $tunes = [
+    'tune1'
+  ];
+    return view('welcome', [
+      'tunes' => $tunes
+    ]);
+});
+
+Route::get('/about', function(){
+  return view('about');
+});
+
+Route::get('/contact', function(){
+  return view('contact');
 });
