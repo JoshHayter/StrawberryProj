@@ -9,7 +9,8 @@
     <title>@yield('title', 'Tuna')</title>
   </head>
   <body>
-    <nav class="uk-navbar-container uk-background-default" uk-navbar>
+    <div class="uk-padding-large">
+    <nav class="uk-navbar-container" style="background: white;" uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
           <li class="uk-active"><a href="/">Tuna</a></li>
@@ -26,5 +27,6 @@
 
 
         @yield('content')
+      </div>
   </body>
 </html>
