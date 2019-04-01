@@ -3,12 +3,14 @@
 
 @section('content')
 
-  <h1>Tuna</h1>
+<div class="uk-text-center">
+  <h2>Tuna</h2>
+  <p>
+    <a href="/tunes">Browse tunes</a>
+  </p>
+</div>
 
-  <ul>
-    @foreach($tunes as $tune)
-      <li>{{$tune}}</li>
-    @endforeach
-  </ul>
+
+
 
 @endsection

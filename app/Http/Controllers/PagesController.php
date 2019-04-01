@@ -8,9 +8,9 @@ class PagesController extends Controller
 {
     public function home()
     {
-      $tunes = \Apps\Tune::all();
 
-      return view('welcome')->withTunes($tunes);
+
+      return view('welcome');
     }
 
     public function about()
