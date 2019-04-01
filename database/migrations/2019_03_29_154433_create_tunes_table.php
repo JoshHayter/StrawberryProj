@@ -18,6 +18,7 @@ class CreateTunesTable extends Migration
             $table->string('title');
             $table->integer('length');
             $table->integer('price');
+            $table->string('imageURL');
             $table->timestamps();
         });
     }
