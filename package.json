@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "shopify-buy": "^2.2.0"
+        "shopify-buy": "^2.2.0",
+        "uikit": "^3.0.3"
     }
 }

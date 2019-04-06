@@ -15,7 +15,7 @@
     Updated weekly
   </p>
   <p>
-    <a href="/shop" class="uk-button uk-button-primary uk-button-small">Browse shop</a>
+    <a href="/shop" class="uk-button uk-button-primary uk-button-small" style="background-color: #22afa5;">Browse shop</a>
   </p>
 </div>
 
