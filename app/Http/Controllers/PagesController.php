@@ -9,7 +9,7 @@ class PagesController extends Controller
 {
     public function home(Shopify $shopify)
     {
-      dd($shopify);
+      dd($shopify->getAllProducts());
 
       return view('welcome');
     }
