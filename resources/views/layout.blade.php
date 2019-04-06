@@ -12,6 +12,7 @@
   </head>
   <body style="background: #fff;">
     <div id="app" class="uk-padding-large">
+      <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     <nav class="uk-navbar-container" style="background: #fff;" uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
@@ -30,7 +31,7 @@
         </ul>
       </div>
     </nav>
-
+</div>
         @yield('content')
       </div>
       <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
