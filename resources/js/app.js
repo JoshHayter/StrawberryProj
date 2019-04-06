@@ -21,6 +21,9 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('vinyl-component', require('./components/VinylComponent.vue').default);
+Vue.component('cart-component', require('./components/CartComponent.vue').default);
+Vue.component('cart-item-component', require('./components/CartItemComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,5 +32,11 @@ Vue.component('vinyl-component', require('./components/VinylComponent.vue').defa
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+      showCartModal: false,
+      
+
+    }
 });

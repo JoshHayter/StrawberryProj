@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Tuna - Contact')
+@section('title', 'Vinyl - Contact')
 
 @section('content')
 

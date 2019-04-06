@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div id="app" class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-grid-match uk-flex-bottom" uk-grid>
+<div class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-3@l uk-grid-match uk-flex-bottom" uk-grid>
 
     {{-- @foreach ($tunes as $tune) --}}
     @for ($i = 0; $i <6; $i++)
