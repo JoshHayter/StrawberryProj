@@ -4,8 +4,9 @@
     <script type="text/javascript" src="{{ URL::asset('js/jquery-3.1.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/uikit-icons.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/uikit.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ URL::asset('css/uikit.min.css') }}">
-    <meta charset="utf-8">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ URL::asset('css/uikit.min.css') }}">
+  <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <title>@yield('title', 'Tuna')</title>
   </head>
   <body>
@@ -25,8 +26,8 @@
       </div>
     </nav>
 
-
         @yield('content')
       </div>
+      <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
   </body>
 </html>
