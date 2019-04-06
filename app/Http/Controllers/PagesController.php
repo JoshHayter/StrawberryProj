@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\Shopify;
 
 class PagesController extends Controller
 {
-    public function home()
+    public function home(Shopify $shopify)
     {
-
+      dd($shopify);
 
       return view('welcome');
     }

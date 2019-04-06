@@ -44,4 +44,11 @@ return [
         ],
     ],
 
+    'shopify' => [
+        'apikey' => env('SHOPIFY_APIKEY'),
+        'password' => env('SHOPIFY_PASSWORD'),
+        'hostname' => env('SHOPIFY_HOSTNAME'),
+        'secret' => env('SHOPIFY_SECRET'),
+    ],
+
 ];
