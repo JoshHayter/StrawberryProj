@@ -3,10 +3,19 @@
 
 @section('content')
 
-<div class="uk-position-center uk-text-cener">
+<div class="uk-position-center uk-text-center">
+
   <h2>Vinyly</h2>
+  <img data-src="{{ asset('img/Vinyl.png') }}" alt="" class="uk-align-center uk-height-small" uk-img>
   <p>
-    <a href="/tunes">Browse shop</a>
+    It's Vinyly here...
+<br>
+    A bespoke collection of vinyl records
+<br>
+    Updated weekly
+  </p>
+  <p>
+    <a href="/shop" class="uk-button uk-button-primary uk-button-small">Browse shop</a>
   </p>
 </div>
 

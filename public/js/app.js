@@ -1811,6 +1811,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['image', 'title', 'description'],
   mounted: function mounted() {
@@ -36909,25 +36913,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _c("div", { staticClass: "card-header" }, [
+  return _c("div", { staticClass: "uk-card" }, [
+    _c("div", { staticClass: "uk-card-header" }, [
       _c("img", {
         staticClass: "uk-align-center",
         attrs: { "data-src": _vm.image, alt: "", "uk-img": "" }
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
+    _c("div", { staticClass: "uk-card-body" }, [
       _c("p"),
       _c("li", [_vm._v(_vm._s(_vm.title))]),
       _vm._v(" "),
       _c("li", [_vm._v(_vm._s(_vm.description))]),
       _vm._v(" "),
       _c("p")
-    ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "uk-card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "uk-button uk-button-default uk-button-small" },
+        [_vm._v("View more")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "uk-button uk-button-primary uk-button-small" },
+        [_vm._v("Add to cart")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
