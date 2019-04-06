@@ -17,4 +17,4 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/contact', 'PagesController@contact');
 
-Route::get('/tunes', 'TunesController@index');
+Route::get('/shop', 'ShopController@index');
