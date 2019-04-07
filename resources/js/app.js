@@ -9,6 +9,7 @@ require('./bootstrap');
 var uikitsrc = require('uikit');
 
 import Client from 'shopify-buy';
+import vSelect from 'vue-select';
 
 window.client = Client.buildClient({
   domain: 'vinyly.myshopify.com',
@@ -16,6 +17,8 @@ window.client = Client.buildClient({
 });
 
 window.Vue = require('vue');
+
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,6 +30,7 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+Vue.component('v-select', vSelect);
 Vue.component('store-component', require('./components/StoreComponent.vue').default);
 Vue.component('vinyl-component', require('./components/VinylComponent.vue').default);
 Vue.component('cart-component', require('./components/CartComponent.vue').default);
