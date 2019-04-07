@@ -1913,6 +1913,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log("Checkout doesn't exist - creating new checkout...");
         this.createNewCheckout();
       }
+
+      this.addToCheckout();
     },
     createNewCheckout: function createNewCheckout() {
       var _this = this;
@@ -1921,6 +1923,16 @@ __webpack_require__.r(__webpack_exports__);
         _this.checkoutID = checkout.id;
         setCheckoutCookie(_this.checkoutID);
         console.log("New checkout created - ID: " + _this.checkoutID);
+      });
+    },
+    addToCheckout: function addToCheckout() {
+      var lineItemsToAdd = [{
+        variantId: this.id,
+        quantity: 1
+      }];
+      client.checkout.addLineItems(this.checkoutID, lineItemsToAdd).then(function (checkout) {
+        console.log("Item added to checkout. New checkout: ");
+        console.log(checkout.lineItems);
       });
     }
   },
@@ -56551,7 +56563,7 @@ var render = function() {
         [
           _c("vinyl-component", {
             attrs: {
-              id: product.id,
+              id: product.variants[0].id,
               image: product.images[0].src,
               title: product.title,
               description: product.description,

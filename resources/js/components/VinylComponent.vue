@@ -20,7 +20,10 @@
 
 <script>
 export default {
+
   props: ['id', 'image', 'title', 'description', 'price'],
+
+
 
   methods: {
     addtoCart() {
@@ -32,8 +35,7 @@ export default {
         console.log("Checkout doesn't exist - creating new checkout...");
         this.createNewCheckout();
       }
-
-
+      this.addToCheckout()
     },
 
     createNewCheckout() {
@@ -41,6 +43,19 @@ export default {
         this.checkoutID = checkout.id;
         setCheckoutCookie(this.checkoutID);
         console.log("New checkout created - ID: " + this.checkoutID);
+      });
+    },
+
+    addToCheckout() {
+      var lineItemsToAdd = [
+        {
+          variantId: this.id,
+          quantity: 1
+        }
+      ];
+      client.checkout.addLineItems(this.checkoutID, lineItemsToAdd).then((checkout) => {
+        console.log("Item added to checkout. New checkout: ");
+        console.log(checkout.lineItems);
       });
     },
   },
