@@ -5,8 +5,8 @@ function setCheckoutCookie(cid) {
   document.cookie = "checkout=" + cid + ";" + expires + ";path=/";
 }
 
-function getCheckoutCookie(cid) {
-  var name = cname + "=";
+function getCheckoutCookie() {
+  var name = "checkout=";
   var decodedCookie = decodeURIComponent(document.cookie);
   var ca = decodedCookie.split(';');
   for(var i = 0; i <ca.length; i++) {
@@ -22,14 +22,13 @@ function getCheckoutCookie(cid) {
 }
 
 function checkCheckoutCookie() {
-  var cid = getCookie("checkout");
+  var cid = getCheckoutCookie();
   if (cid != "") {
-   //GET CHECKOUT CART
-  } else {
-    //EMPTY CART
+   return true;
   }
+  return false;
 }
 
-function DeleteCheckoutCookie() {
+function deleteCheckoutCookie() {
   document.cookie = "checkout=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }

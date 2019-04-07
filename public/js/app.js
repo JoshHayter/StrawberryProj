@@ -1902,6 +1902,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id', 'image', 'title', 'description', 'price'],
+  methods: {
+    addtoCart: function addtoCart() {
+      var checkoutID;
+
+      if (checkCheckoutCookie() == true) {
+        this.checkoutID = getCheckoutCookie();
+        console.log("Checkout already exists - ID: " + this.checkoutID);
+      } else {
+        console.log("Checkout doesn't exist - creating new checkout...");
+        this.createNewCheckout();
+      }
+    },
+    createNewCheckout: function createNewCheckout() {
+      var _this = this;
+
+      client.checkout.create().then(function (checkout) {
+        _this.checkoutID = checkout.id;
+        setCheckoutCookie(_this.checkoutID);
+        console.log("New checkout created - ID: " + _this.checkoutID);
+      });
+    }
+  },
   mounted: function mounted() {
     console.log('VinylComponent mounted.');
   }
@@ -56575,24 +56597,22 @@ var render = function() {
     _vm._v(" "),
     _c("div", [
       _c("p"),
-      _c("li", [_vm._v(_vm._s(_vm.title))]),
+      _c("li", { staticClass: "uk-text-truncate" }, [
+        _vm._v(_vm._s(_vm.title))
+      ]),
       _vm._v(" "),
-      _c("li", [_vm._v(_vm._s(_vm.description))]),
+      _c("li", { staticClass: "uk-text-truncate" }, [
+        _vm._v(_vm._s(_vm.description))
+      ]),
       _vm._v(" "),
-      _c("li", [_vm._v("£" + _vm._s(_vm.price))]),
+      _c("li", { staticClass: "uk-text-truncate" }, [
+        _vm._v("£" + _vm._s(_vm.price))
+      ]),
       _vm._v(" "),
       _c("p")
     ]),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
+    _c("div", [
       _c(
         "button",
         { staticClass: "uk-button uk-button-default uk-button-small" },
@@ -56603,13 +56623,19 @@ var staticRenderFns = [
         "button",
         {
           staticClass: "uk-button uk-button-primary uk-button-small",
-          staticStyle: { "background-color": "#22afa5" }
+          staticStyle: { "background-color": "#22afa5" },
+          on: {
+            click: function($event) {
+              return _vm.addtoCart()
+            }
+          }
         },
         [_vm._v("Add to cart")]
       )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

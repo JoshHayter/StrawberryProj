@@ -21,7 +21,7 @@ created () {
     '$route': 'fetchData'
   },
   methods: {
-    fetchData () {
+    fetchData: function () {
       client.product.fetchAll().then((products) => {
         this.products = products
       });
