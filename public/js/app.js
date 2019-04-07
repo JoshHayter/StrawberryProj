@@ -1899,8 +1899,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['id', 'image', 'title', 'description'],
+  props: ['id', 'image', 'title', 'description', 'price'],
   mounted: function mounted() {
     console.log('VinylComponent mounted.');
   }
@@ -56531,7 +56532,8 @@ var render = function() {
               id: product.id,
               image: product.images[0].src,
               title: product.title,
-              description: product.description
+              description: product.description,
+              price: product.variants[0].price
             }
           })
         ],
@@ -56576,6 +56578,8 @@ var render = function() {
       _c("li", [_vm._v(_vm._s(_vm.title))]),
       _vm._v(" "),
       _c("li", [_vm._v(_vm._s(_vm.description))]),
+      _vm._v(" "),
+      _c("li", [_vm._v("£" + _vm._s(_vm.price))]),
       _vm._v(" "),
       _c("p")
     ]),

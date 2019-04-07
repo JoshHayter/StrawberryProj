@@ -8,6 +8,7 @@
         <p>
             <li>{{ title }}</li>
             <li>{{ description }}</li>
+            <li>£{{ price }}</li>
         </p>
     </div>
     <div>
@@ -19,7 +20,7 @@
 
 <script>
 export default {
-  props: ['id', 'image', 'title', 'description'],
+  props: ['id', 'image', 'title', 'description', 'price'],
 
     mounted() {
         console.log('VinylComponent mounted.')
