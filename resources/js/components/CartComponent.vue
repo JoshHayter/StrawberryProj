@@ -12,6 +12,7 @@
   </div>
     <div v-if="Object.keys(this.checkoutObj).length === 0">Cart Empty</div>
     <cart-item-component v-for="item in checkoutObj.lineItems" :key="item.id" :title="item.title" :price="item.variant.price" :quantity="item.quantity"></cart-item-component>
+    <br>
     <div v-if="!(Object.keys(this.checkoutObj).length === 0)">Total Price: £{{this.checkoutObj.subtotalPrice}}</div>
 
       </div>
