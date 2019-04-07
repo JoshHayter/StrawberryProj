@@ -1784,6 +1784,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -56500,7 +56502,25 @@ var render = function() {
             "div",
             { staticClass: "uk-padding-small" },
             [
-              _vm._m(0),
+              !(Object.keys(this.checkoutObj).length === 0)
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "uk-child-width-1-3 uk-grid uk-flex-bottom"
+                    },
+                    [
+                      _c("div", [_vm._v("Title")]),
+                      _vm._v(" "),
+                      _c("div", [_vm._v("Price")]),
+                      _vm._v(" "),
+                      _c("div", [_vm._v("Quantity")])
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              Object.keys(this.checkoutObj).length === 0
+                ? _c("div", [_vm._v("Cart Empty")])
+                : _vm._e(),
               _vm._v(" "),
               _vm._l(_vm.checkoutObj.lineItems, function(item) {
                 return _c("cart-item-component", {
@@ -56516,41 +56536,34 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c("button", { staticClass: "uk-button uk-button-danger" }, [
-            _vm._v("Clear Cart")
-          ]),
+          !(Object.keys(this.checkoutObj).length === 0)
+            ? _c("div", [
+                _vm._v("Total Price: £" + _vm._s(_vm.checkoutObj.subtotalprice))
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "uk-button uk-button-primary",
-              staticStyle: { "background-color": "#22afa5" }
-            },
-            [_vm._v("Checkout")]
-          )
+          !(Object.keys(this.checkoutObj).length === 0)
+            ? _c("button", { staticClass: "uk-button uk-button-danger" }, [
+                _vm._v("Clear Cart")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !(Object.keys(this.checkoutObj).length === 0)
+            ? _c(
+                "button",
+                {
+                  staticClass: "uk-button uk-button-primary",
+                  staticStyle: { "background-color": "#22afa5" }
+                },
+                [_vm._v("Checkout")]
+              )
+            : _vm._e()
         ])
       ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "uk-child-width-1-3 uk-grid uk-flex-bottom" },
-      [
-        _c("div", [_vm._v("Title")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("Price")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("Quantity")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

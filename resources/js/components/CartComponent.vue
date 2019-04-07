@@ -5,15 +5,17 @@
   <button class="uk-button-danger uk-align-right" @click="$emit('close')">X</button>
 
 <div class="uk-padding-small">
-  <div class="uk-child-width-1-3 uk-grid uk-flex-bottom">
+  <div v-if="!(Object.keys(this.checkoutObj).length === 0)" class="uk-child-width-1-3 uk-grid uk-flex-bottom">
       <div>Title</div>
       <div>Price</div>
       <div>Quantity</div>
   </div>
+    <div v-if="Object.keys(this.checkoutObj).length === 0">Cart Empty</div>
     <cart-item-component v-for="item in checkoutObj.lineItems" :key="item.id" :title="item.title" :price="item.variant.price" :quantity="item.quantity"></cart-item-component>
       </div>
-    <button class="uk-button uk-button-danger">Clear Cart</button>
-    <button class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
+      <div v-if="!(Object.keys(this.checkoutObj).length === 0)">Total Price: £{{checkoutObj.subtotalprice}}</div>
+    <button v-if="!(Object.keys(this.checkoutObj).length === 0)" class="uk-button uk-button-danger">Clear Cart</button>
+    <button v-if="!(Object.keys(this.checkoutObj).length === 0)" class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
 </div>
 </div>
 </div>
