@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  props: ['image', 'title', 'description'],
+  props: ['id', 'image', 'title', 'description'],
 
     mounted() {
         console.log('VinylComponent mounted.')

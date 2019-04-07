@@ -8,6 +8,13 @@
 require('./bootstrap');
 var uikitsrc = require('uikit');
 
+import Client from 'shopify-buy';
+
+window.client = Client.buildClient({
+  domain: 'vinyly.myshopify.com',
+  storefrontAccessToken: 'eef4905d224af6c79a6b303186d1fd8d'
+});
+
 window.Vue = require('vue');
 
 /**
@@ -20,7 +27,7 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
+Vue.component('store-component', require('./components/StoreComponent.vue').default);
 Vue.component('vinyl-component', require('./components/VinylComponent.vue').default);
 Vue.component('cart-component', require('./components/CartComponent.vue').default);
 Vue.component('cart-item-component', require('./components/CartItemComponent.vue').default);
@@ -37,7 +44,9 @@ const app = new Vue({
 
     data: {
       showCartModal: false,
-
+      checkout: { lineItems: [] },
 
     }
+
+
 });

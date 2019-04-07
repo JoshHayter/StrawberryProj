@@ -34,7 +34,6 @@
         @yield('content')
       </div>
       <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
-      <script type="text/javascript" src="{{ URL::asset('js/shopify-api.js') }}"></script>
-
+      <script type="text/javascript" src="{{ URL::asset('js/cookie-manager.js') }}"></script>
   </body>
 </html>

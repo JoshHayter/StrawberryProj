@@ -1,15 +1,3 @@
-import Client from 'shopify-buy';
-
-const client = Client.buildClient({
-  domain: 'vinyly.myshopify.com',
-  storefrontAccessToken: 'eef4905d224af6c79a6b303186d1fd8d'
-});
-
-client.product.fetchAll().then((products) => {
-  // Do something with the products
-  console.log(products);
-});
-
 function setCheckoutCookie(cid) {
   var d = new Date();
   d.setTime(d.getTime() + (24*60*60*1000));
