@@ -4,6 +4,9 @@
     <button class="uk-button-danger uk-align-right" @click="$emit('close')">X</button>
 </p>
     <cart-item-component v-for="item in cartItems" :key="item.cartItem" :cartItem="item.cartItem"></cart-item-component>
+    <p>
+    <button class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
+  </p>
 </div>
 </template>
 

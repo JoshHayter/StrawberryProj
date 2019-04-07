@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+var uikitsrc = require('uikit');
 
 window.Vue = require('vue');
 
@@ -36,7 +37,7 @@ const app = new Vue({
 
     data: {
       showCartModal: false,
-      
+
 
     }
 });
