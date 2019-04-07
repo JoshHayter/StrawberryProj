@@ -1775,25 +1775,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      cartItems: [{
-        cartItem: 'Chicken'
-      }, {
-        cartItem: 'Pig'
-      }, {
-        cartItem: 'Cow'
-      }, {
-        cartItem: 'Dog'
-      }, {
-        cartItem: 'Cat'
-      }, {
-        cartItem: 'Horse'
-      }]
+      checkoutID: '',
+      checkoutObj: []
     };
   },
-  props: ['yes'],
+  created: function created() {
+    this.fetchData();
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  methods: {
+    fetchData: function fetchData() {
+      if (checkCheckoutCookie() == true) {
+        this.checkoutID = getCheckoutCookie();
+        console.log("Checkout exists - ID: " + this.checkoutID);
+        this.getCheckout();
+      } else {
+        console.log("Checkout doesn't exist, cart empty");
+      }
+    },
+    getCheckout: function getCheckout() {
+      var _this = this;
+
+      client.checkout.fetch(this.checkoutID).then(function (checkout) {
+        _this.checkoutObj = checkout;
+        console.log(checkout);
+      });
+    }
+  },
   mounted: function mounted() {
     console.log('CartComponent mounted.');
   }
@@ -1816,8 +1838,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['cartItem'],
+  props: ['title', 'price', 'quantity'],
   mounted: function mounted() {
     console.log('CartComponent mounted.');
   }
@@ -1902,10 +1926,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id', 'image', 'title', 'description', 'price'],
+  data: function data() {
+    return {
+      checkoutId: ''
+    };
+  },
   methods: {
     addtoCart: function addtoCart() {
-      var checkoutID;
-
       if (checkCheckoutCookie() == true) {
         this.checkoutID = getCheckoutCookie();
         console.log("Checkout already exists - ID: " + this.checkoutID);
@@ -56452,34 +56479,58 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "uk-position-medium uk-position-right" },
+    { staticClass: "uk-position-medium uk-position-right uk-position-z-index" },
     [
-      _c("p", [
-        _vm._v("Cart\n    "),
-        _c(
-          "button",
-          {
-            staticClass: "uk-button-danger uk-align-right",
-            on: {
-              click: function($event) {
-                return _vm.$emit("close")
+      _c("div", { staticClass: "uk-background-muted" }, [
+        _c("div", { staticClass: "uk-padding-small" }, [
+          _c(
+            "button",
+            {
+              staticClass: "uk-button-danger uk-align-right",
+              on: {
+                click: function($event) {
+                  return _vm.$emit("close")
+                }
               }
-            }
-          },
-          [_vm._v("X")]
-        )
-      ]),
-      _vm._v(" "),
-      _vm._l(_vm.cartItems, function(item) {
-        return _c("cart-item-component", {
-          key: item.cartItem,
-          attrs: { cartItem: item.cartItem }
-        })
-      }),
-      _vm._v(" "),
-      _vm._m(0)
-    ],
-    2
+            },
+            [_vm._v("X")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "uk-padding-small" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._l(_vm.checkoutObj.lineItems, function(item) {
+                return _c("cart-item-component", {
+                  key: item.id,
+                  attrs: {
+                    title: item.title,
+                    price: item.variant.price,
+                    quantity: item.quantity
+                  }
+                })
+              })
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c("button", { staticClass: "uk-button uk-button-danger" }, [
+            _vm._v("Clear Cart")
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "uk-button uk-button-primary",
+              staticStyle: { "background-color": "#22afa5" }
+            },
+            [_vm._v("Checkout")]
+          )
+        ])
+      ])
+    ]
   )
 }
 var staticRenderFns = [
@@ -56487,16 +56538,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", [
-      _c(
-        "button",
-        {
-          staticClass: "uk-button uk-button-primary",
-          staticStyle: { "background-color": "#22afa5" }
-        },
-        [_vm._v("Checkout")]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "uk-child-width-1-3 uk-grid uk-flex-bottom" },
+      [
+        _c("div", [_vm._v("Title")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Price")]),
+        _vm._v(" "),
+        _c("div", [_vm._v("Quantity")])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -56520,9 +56572,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "uk-card-default" }, [
-    _vm._v("\n    " + _vm._s(_vm.cartItem) + "\n")
-  ])
+  return _c(
+    "div",
+    { staticClass: "uk-child-width-1-3 uk-grid uk-flex-bottom" },
+    [
+      _c("div", [_vm._v(_vm._s(_vm.title))]),
+      _vm._v(" "),
+      _c("div", [_vm._v("£" + _vm._s(_vm.price))]),
+      _vm._v(" "),
+      _c("div", [_vm._v(_vm._s(_vm.quantity))])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -56625,12 +56685,6 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", [
-      _c(
-        "button",
-        { staticClass: "uk-button uk-button-default uk-button-small" },
-        [_vm._v("View more")]
-      ),
-      _vm._v(" "),
       _c(
         "button",
         {

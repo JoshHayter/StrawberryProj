@@ -12,8 +12,8 @@
         </p>
     </div>
     <div>
-      <button class="uk-button uk-button-default uk-button-small">View more</button>
-      <button v-on:click="addtoCart()"class="uk-button uk-button-primary uk-button-small" style="background-color: #22afa5;">Add to cart</button>
+      <!-- <button class="uk-button uk-button-default uk-button-small">View more</button> -->
+      <button @click="addtoCart()"class="uk-button uk-button-primary uk-button-small" style="background-color: #22afa5;">Add to cart</button>
     </div>
 </div>
 </template>
@@ -23,11 +23,14 @@ export default {
 
   props: ['id', 'image', 'title', 'description', 'price'],
 
-
+  data: function () {
+  return {
+    checkoutId: '',
+  }
+  },
 
   methods: {
     addtoCart() {
-      var checkoutID;
       if (checkCheckoutCookie() == true){
         this.checkoutID = getCheckoutCookie();
         console.log("Checkout already exists - ID: " + this.checkoutID);
