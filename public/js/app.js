@@ -1817,6 +1817,19 @@ __webpack_require__.r(__webpack_exports__);
         _this.checkoutObj = checkout;
         console.log(checkout);
       });
+    },
+    clearCheckout: function clearCheckout() {
+      var _this2 = this;
+
+      var lineItemsToDelete = [];
+      this.checkoutObj.lineItems.forEach(function (lineItem) {
+        lineItemsToDelete.push(lineItem.id);
+      });
+      client.checkout.removeLineItems(this.checkoutID, lineItemsToDelete).then(function (checkout) {
+        console.log('Checkout cleared...');
+
+        _this2.fetchData();
+      });
     }
   },
   mounted: function mounted() {
@@ -56589,9 +56602,18 @@ var render = function() {
           ),
           _vm._v(" "),
           !(Object.keys(this.checkoutObj).length === 0)
-            ? _c("button", { staticClass: "uk-button uk-button-danger" }, [
-                _vm._v("Clear Cart")
-              ])
+            ? _c(
+                "button",
+                {
+                  staticClass: "uk-button uk-button-danger",
+                  on: {
+                    click: function($event) {
+                      return _vm.clearCheckout()
+                    }
+                  }
+                },
+                [_vm._v("Clear Cart")]
+              )
             : _vm._e(),
           _vm._v(" "),
           !(Object.keys(this.checkoutObj).length === 0)
@@ -56706,6 +56728,11 @@ var render = function() {
                 title: product.title,
                 description: product.description,
                 price: product.variants[0].price
+              },
+              on: {
+                added: function($event) {
+                  return _vm.$emit("added")
+                }
               }
             })
           ],

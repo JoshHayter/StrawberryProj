@@ -15,7 +15,7 @@
     <div v-if="!(Object.keys(this.checkoutObj).length === 0)">Total Price: £{{this.checkoutObj.subtotalPrice}}</div>
 
       </div>
-    <button v-if="!(Object.keys(this.checkoutObj).length === 0)" class="uk-button uk-button-danger">Clear Cart</button>
+    <button v-if="!(Object.keys(this.checkoutObj).length === 0)" @click="clearCheckout()" class="uk-button uk-button-danger">Clear Cart</button>
     <button v-if="!(Object.keys(this.checkoutObj).length === 0)" class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
 </div>
 </div>
@@ -53,6 +53,18 @@ created () {
       console.log(checkout);
       });
     },
+
+    clearCheckout: function () {
+      var lineItemsToDelete = [];
+      this.checkoutObj.lineItems.forEach(function(lineItem){
+        lineItemsToDelete.push(lineItem.id);
+      });
+      client.checkout.removeLineItems(this.checkoutID, lineItemsToDelete).then((checkout) => {
+        console.log('Checkout cleared...');
+        this.fetchData();
+      });
+    },
+
   },
 
     mounted() {

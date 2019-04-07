@@ -26,7 +26,7 @@
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
           <li @click="showCartModal = true" class="uk-link uk-text-lowercase">cart</li>
-          <cart-component v-if="showCartModal" @close="showCartModal = false"></cart-component>
+          <cart-component v-if="showCartModal" @close="showCartModal = false" @added="showCartModal = false"></cart-component>
         </ul>
       </div>
     </nav>
