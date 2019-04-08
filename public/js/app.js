@@ -1906,6 +1906,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -56774,39 +56826,42 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "uk-child-width-1-1@s uk-child-width-1-2@m uk-grid" },
-    [
-      _c(
-        "div",
-        { staticClass: "uk-padding-large" },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._l(_vm.checkoutObj.lineItems, function(item) {
-            return _c("cart-item-component", {
-              key: item.id,
-              attrs: {
-                title: item.title,
-                price: item.variant.price,
-                quantity: item.quantity
-              }
-            })
-          }),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c("div", [
-            _vm._v("Total Price: £" + _vm._s(this.checkoutObj.subtotalPrice))
-          ])
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("div", [_vm._v("\n  SHIPPING\n")])
-    ]
-  )
+  return _c("div", { staticClass: "uk-padding-large" }, [
+    _c(
+      "div",
+      { staticClass: "uk-child-width-1-1@s uk-child-width-1-2@m uk-grid" },
+      [
+        _c(
+          "div",
+          [
+            _c("h2", [_vm._v("Cart")]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._l(_vm.checkoutObj.lineItems, function(item) {
+              return _c("cart-item-component", {
+                key: item.id,
+                attrs: {
+                  title: item.title,
+                  price: item.variant.price,
+                  quantity: item.quantity
+                }
+              })
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("div", [
+              _vm._v("Total Price: £" + _vm._s(this.checkoutObj.subtotalPrice))
+            ])
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _vm._m(1)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -56824,6 +56879,170 @@ var staticRenderFns = [
         _c("div", [_vm._v("Quantity")])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("h2", [_vm._v("Shipping")]),
+      _vm._v(" "),
+      _c("form", { staticClass: "uk-form-horizontal" }, [
+        _c("div", { staticClass: "uk-margin" }, [
+          _c(
+            "label",
+            {
+              staticClass: "uk-form-label",
+              attrs: { for: "form-horizontal-text" }
+            },
+            [_vm._v("First name")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-form-controls" }, [
+            _c("input", {
+              staticClass: "uk-input",
+              attrs: {
+                id: "form-horizontal-text",
+                type: "text",
+                placeholder: "First name"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-margin" }, [
+          _c(
+            "label",
+            {
+              staticClass: "uk-form-label",
+              attrs: { for: "form-horizontal-text" }
+            },
+            [_vm._v("Last name")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-form-controls" }, [
+            _c("input", {
+              staticClass: "uk-input",
+              attrs: {
+                id: "form-horizontal-text",
+                type: "text",
+                placeholder: "Last name"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-margin" }, [
+          _c(
+            "label",
+            {
+              staticClass: "uk-form-label",
+              attrs: { for: "form-horizontal-text" }
+            },
+            [_vm._v("Address line 1")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-form-controls" }, [
+            _c("input", {
+              staticClass: "uk-input",
+              attrs: {
+                id: "form-horizontal-text",
+                type: "text",
+                placeholder: "Address line 1"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-margin" }, [
+          _c(
+            "label",
+            {
+              staticClass: "uk-form-label",
+              attrs: { for: "form-horizontal-text" }
+            },
+            [_vm._v("Address line 2")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-form-controls" }, [
+            _c("input", {
+              staticClass: "uk-input",
+              attrs: {
+                id: "form-horizontal-text",
+                type: "text",
+                placeholder: "Address line 2"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-margin" }, [
+          _c(
+            "label",
+            {
+              staticClass: "uk-form-label",
+              attrs: { for: "form-horizontal-text" }
+            },
+            [_vm._v("City")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-form-controls" }, [
+            _c("input", {
+              staticClass: "uk-input",
+              attrs: {
+                id: "form-horizontal-text",
+                type: "text",
+                placeholder: "City"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-margin" }, [
+          _c(
+            "label",
+            {
+              staticClass: "uk-form-label",
+              attrs: { for: "form-horizontal-text" }
+            },
+            [_vm._v("County")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-form-controls" }, [
+            _c("input", {
+              staticClass: "uk-input",
+              attrs: {
+                id: "form-horizontal-text",
+                type: "text",
+                placeholder: "County"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "uk-margin" }, [
+          _c(
+            "label",
+            {
+              staticClass: "uk-form-label",
+              attrs: { for: "form-horizontal-text" }
+            },
+            [_vm._v("Post code")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "uk-form-controls" }, [
+            _c("input", {
+              staticClass: "uk-input",
+              attrs: {
+                id: "form-horizontal-text",
+                type: "text",
+                placeholder: "Post code"
+              }
+            })
+          ])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
