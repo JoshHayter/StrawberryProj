@@ -10,7 +10,7 @@
   <p>
     It's Vinyly here...
 <br>
-    A bespoke collection of vinyl records
+    A hand picked collection of vinyl records
 <br>
     Updated weekly
   </p>
