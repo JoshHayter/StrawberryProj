@@ -1957,7 +1957,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -56860,6 +56859,15 @@ var render = function() {
         _vm._v(" "),
         _vm._m(1)
       ]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "uk-button uk-button-primary",
+        staticStyle: { "background-color": "#22afa5" }
+      },
+      [_vm._v("Proceed to payment")]
     )
   ])
 }

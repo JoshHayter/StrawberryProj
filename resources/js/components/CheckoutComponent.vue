@@ -14,8 +14,6 @@
             <div>Total Price: £{{this.checkoutObj.subtotalPrice}}</div>
 
         </div>
-        <!-- <button v-if="!isCheckoutEmpty()" @click="clearCheckout()" class="uk-button uk-button-danger">Clear Cart</button> -->
-        <!-- <button v-if="!isCheckoutEmpty()" class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button> -->
 
         <div>
             <h2>Shipping</h2>
@@ -68,6 +66,7 @@
         </div>
 
     </div>
+    <button class="uk-button uk-button-primary" style="background-color: #22afa5;">Proceed to payment</button>
 </div>
 </template>
 
