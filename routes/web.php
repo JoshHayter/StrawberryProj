@@ -18,3 +18,5 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 
 Route::get('/shop', 'ShopController@index');
+
+Route::get('/checkout', 'ShopController@checkout');

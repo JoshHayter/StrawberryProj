@@ -7,15 +7,14 @@ use App\Services\Shopify;
 
 class PagesController extends Controller
 {
-    public function home(Shopify $shopify)
+    public function home()
     {
-      // dd($shopify->getAllProducts());
-
       return view('welcome');
     }
 
-    public function about()
+    public function about(Shopify $shopify)
     {
+      dd($shopify->getAllProducts());
       return view('about');
     }
 
