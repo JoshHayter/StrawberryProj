@@ -17,7 +17,7 @@
 
       </div>
     <button v-if="!isCheckoutEmpty()" @click="clearCheckout()" class="uk-button uk-button-danger">Clear Cart</button>
-    <button v-if="!isCheckoutEmpty()" class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
+    <button v-if="!isCheckoutEmpty()" @click="redirectToCheckout()" class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
 </div>
 </div>
 </div>
@@ -71,6 +71,10 @@ created () {
         return true;
       }
       return false;
+    },
+
+    redirectToCheckout: function () {
+      window.location = '/shop/checkout/' + this.checkoutID;
     },
 
   },

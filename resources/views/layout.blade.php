@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    {{-- <script type="text/javascript" src="{{ URL::asset('js/jquery-3.1.1.min.js') }}"></script> --}}
+    <script type="text/javascript" src="{{ URL::asset('js/cookie-manager.js') }}"></script>
 
   <meta charset="utf-8">
   <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
@@ -34,6 +34,5 @@
         @yield('content')
       </div>
       <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
-      <script type="text/javascript" src="{{ URL::asset('js/cookie-manager.js') }}"></script>
   </body>
 </html>
