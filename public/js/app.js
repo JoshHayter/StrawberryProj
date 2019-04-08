@@ -1831,6 +1831,13 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.fetchData();
       });
+    },
+    isCheckoutEmpty: function isCheckoutEmpty() {
+      if (this.checkoutObj.lineItems === undefined || this.checkoutObj.lineItems.length == 0) {
+        return true;
+      }
+
+      return false;
     }
   },
   mounted: function mounted() {
@@ -56560,7 +56567,7 @@ var render = function() {
             "div",
             { staticClass: "uk-padding-small" },
             [
-              !(Object.keys(this.checkoutObj).length === 0)
+              !_vm.isCheckoutEmpty()
                 ? _c(
                     "div",
                     {
@@ -56576,7 +56583,7 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              Object.keys(this.checkoutObj).length === 0
+              _vm.isCheckoutEmpty()
                 ? _c("div", [_vm._v("Cart Empty")])
                 : _vm._e(),
               _vm._v(" "),
@@ -56593,7 +56600,7 @@ var render = function() {
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
-              !(Object.keys(this.checkoutObj).length === 0)
+              !_vm.isCheckoutEmpty()
                 ? _c("div", [
                     _vm._v(
                       "Total Price: £" + _vm._s(this.checkoutObj.subtotalPrice)
@@ -56604,7 +56611,7 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          !(Object.keys(this.checkoutObj).length === 0)
+          !_vm.isCheckoutEmpty()
             ? _c(
                 "button",
                 {
@@ -56619,7 +56626,7 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          !(Object.keys(this.checkoutObj).length === 0)
+          !_vm.isCheckoutEmpty()
             ? _c(
                 "button",
                 {

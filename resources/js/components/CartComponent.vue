@@ -5,19 +5,19 @@
   <button class="uk-button-danger uk-align-right" @click="$emit('close')">X</button>
 
 <div class="uk-padding-small">
-  <div v-if="!(Object.keys(this.checkoutObj).length === 0)" class="uk-child-width-1-3 uk-grid uk-flex-bottom">
+  <div v-if="!isCheckoutEmpty()" class="uk-child-width-1-3 uk-grid uk-flex-bottom">
       <div>Title</div>
       <div>Price</div>
       <div>Quantity</div>
   </div>
-    <div v-if="Object.keys(this.checkoutObj).length === 0">Cart Empty</div>
+    <div v-if="isCheckoutEmpty()">Cart Empty</div>
     <cart-item-component v-for="item in checkoutObj.lineItems" :key="item.id" :title="item.title" :price="item.variant.price" :quantity="item.quantity"></cart-item-component>
     <br>
-    <div v-if="!(Object.keys(this.checkoutObj).length === 0)">Total Price: £{{this.checkoutObj.subtotalPrice}}</div>
+    <div v-if="!isCheckoutEmpty()">Total Price: £{{this.checkoutObj.subtotalPrice}}</div>
 
       </div>
-    <button v-if="!(Object.keys(this.checkoutObj).length === 0)" @click="clearCheckout()" class="uk-button uk-button-danger">Clear Cart</button>
-    <button v-if="!(Object.keys(this.checkoutObj).length === 0)" class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
+    <button v-if="!isCheckoutEmpty()" @click="clearCheckout()" class="uk-button uk-button-danger">Clear Cart</button>
+    <button v-if="!isCheckoutEmpty()" class="uk-button uk-button-primary" style="background-color: #22afa5;">Checkout</button>
 </div>
 </div>
 </div>
@@ -64,6 +64,13 @@ created () {
         console.log('Checkout cleared...');
         this.fetchData();
       });
+    },
+
+    isCheckoutEmpty: function () {
+      if (this.checkoutObj.lineItems === undefined || this.checkoutObj.lineItems.length == 0){
+        return true;
+      }
+      return false;
     },
 
   },
