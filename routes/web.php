@@ -19,4 +19,4 @@ Route::get('/contact', 'PagesController@contact');
 
 Route::get('/shop', 'ShopController@index');
 
-Route::get('/checkout', 'ShopController@checkout');
+Route::get('/shop/checkout/{checkoutId}', 'ShopController@checkout');

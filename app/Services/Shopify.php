@@ -39,5 +39,16 @@ class Shopify
         // {"type":"User"...'
   }
 
+  public function validCheckout($checkoutId){
+    $client = new Client();
+    $res = $client->request('GET', $this->apiurl.'checkouts/'.$checkoutId.'.json', [
+    ]);
+    if($res->getStatusCode() == 200)
+    {
+      return true;
+    };
+    return false;
+  }
+
 
 }

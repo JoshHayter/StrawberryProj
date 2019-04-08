@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\Shopify;
 
 class ShopController extends Controller
 {
@@ -10,8 +11,13 @@ class ShopController extends Controller
   {
     return view('shop.index');
   }
-  public function checkout()
+  public function checkout($checkoutId, Shopify $shopify)
   {
-    return view('shop.checkout');
+    // if($shopify->validCheckout($checkoutId)){
+    //   return view('shop.checkout')->with('checkoutId', $checkoutId);
+    // }
+    // abort(404);
+
+    return view('shop.checkout')->with('checkoutId', $checkoutId);
   }
 }
